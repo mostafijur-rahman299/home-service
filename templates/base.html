@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'static/css/bootstrap.css' %}">
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static 'static/css/style.css' %}">
+
+    <!-- lightbox  -->
+    <link rel="stylesheet" href="{% static 'static/css/lightbox.min.css' %}">
+
+    <title>HomeService</title>
+</head>
+
+<body>
+    
+
+    {% include 'navbar.html' %}
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert" style="background: green;">
+        <strong></strong>{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% block content %}{% endblock content %}
+
+
+
+
+
+  {% include 'footer.html' %}
+
+
+
+
+
+  
+
+  <script src="{% static 'static/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'static/js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'static/js/main.js' %}"></script>
+  
+  <!-- lightbox -->
+  <script src="{% static 'static/js/lightbox.min.js' %}"></script>
+
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/3b5fe7c866.js"></script>
+</body>
+
+</html>

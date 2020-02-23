@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-12">
+          <h1 class="display-4">About Depnox</h1>
+          <p class="lead">Consectetur adipisicing elit. Sunt, pariatur!accusamus rem quia magnam magni dolorum</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+<!-- main section -->
+<section id="about" class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>We Search For The Perfect Home</h2>
+                <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt, pariatur!</p>
+                <img src="{% static 'static/img/about.jpg' %}" alt="">
+                <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis esse officia
+                    repudiandae ad saepe ex, amet
+                    neque quod accusamus rem quia magnam magni dolorum facilis ullam minima perferendis? Exercitationem
+                    at quaerat
+                    commodi id libero eveniet harum perferendis laborum molestias quia.</p>
+            </div>
+            {% if seller_of_month %}
+            {% for seller in seller_of_month %}
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{ seller.photo.url }}" alt="Seller of the month">
+                    <div class="card-body">
+                        <h5 class="card-title">Seller Of The Month</h5>
+                        <h6 class="text-secondary">{{ seller.name }}</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nesciunt
+                            amet, illo itaque similique repellat.
+                            content.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>Not found...</p>
+            {% endif %}
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="work" class="bg-dark text-white text-center">
+    <h2 class="display-4">We Work For You</h2>
+    <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit aperiam, unde aliquid at similique!</h4>
+    <hr>
+    <a href="{% url 'listings:listings' %}" class="btn btn-secondary text-white btn-lg">View Our Featured Listings</a>
+</section>
+
+<!-- Team section  -->
+{% if teams %}
+
+<section id="team" class="">
+    <div class="container">
+        <h2 class="text-center text-muted mb-5 mt-2">Our Team</h2>
+        <div class="row text-center">
+            {% for team in teams %}
+            <div class="col-md-4">
+                <img src="{{ team.photo.url }}" alt="" class="rounded-circle mb-3">
+                <h4>Kyle Brown</h4>
+                <p class="text-success">
+                    <i class="fas fa-award text-success mb-3"></i> Realtor</p>
+                <hr>
+                <p>
+                    <i class="fas fa-phone"></i> {{ team.phone }} </p>
+                <p>
+                    <i class="fas fa-envelope-open"></i> {{ team.email }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% else %}
+<p>Not found...</p>
+{% endif %}
+
+
+
+
+
+{% endblock content %}
